@@ -1,0 +1,6 @@
+C:\Users\dengr6\Desktop\project\frdmk66f_freertos_hello\drivers/fsl_clock.h:725:20:CLOCK_EnableClock	24	static
+C:\Users\dengr6\Desktop\project\frdmk66f_freertos_hello\drivers/fsl_port.h:374:20:PORT_SetPinMux	24	static
+../source/RC_Receiver_Component.c:18:6:setupRCReceiverComponent	32	static
+../source/RC_Receiver_Component.c:42:6:setupRCPins	8	static
+../source/RC_Receiver_Component.c:49:6:setupUART_RC	24	static
+../source/RC_Receiver_Component.c:61:6:rcTask	80	static

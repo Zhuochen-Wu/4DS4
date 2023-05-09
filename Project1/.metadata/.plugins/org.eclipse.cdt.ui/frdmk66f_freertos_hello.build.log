@@ -1,0 +1,11 @@
+15:47:05 **** Incremental Build of configuration Debug for project frdmk66f_freertos_hello ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "frdmk66f_freertos_hello.axf"; # arm-none-eabi-objcopy -v -O binary "frdmk66f_freertos_hello.axf" "frdmk66f_freertos_hello.bin" ; # checksum -p MK66FN2M0xxx18 -d "frdmk66f_freertos_hello.bin";
+   text	   data	    bss	    dec	    hex	filename
+  41648	     24	  19168	  60840	   eda8	frdmk66f_freertos_hello.axf
+ 
+
+15:47:05 Build Finished. 0 errors, 0 warnings. (took 258ms)
+

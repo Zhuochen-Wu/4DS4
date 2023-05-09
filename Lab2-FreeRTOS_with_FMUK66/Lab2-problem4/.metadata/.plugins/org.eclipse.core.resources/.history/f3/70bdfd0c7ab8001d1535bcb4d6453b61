@@ -1,0 +1,131 @@
+
+
+#include <stdio.h>
+#include <ctype.h>
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
+#include "event_groups.h"
+
+/* Freescale includes. */
+#include "fsl_device_registers.h"
+#include "fsl_debug_console.h"
+#include "pin_mux.h"
+#include "clock_config.h"
+#include "board.h"
+
+
+
+
+
+void dir_producer_sem(void* pvParameters){
+	Task_Input* task_input = (Task_Input *)pvParameters;
+	SemaphoreHandle_t producer_semaphore = task_input->sems[0];
+	SemaphoreHandle_t consumer_semaphore = task_input->sems[1];
+	BaseType_t status;
+	char c;
+	while(1)
+	{
+
+		status = xSemaphoreTake(consumer_semaphore, portMAX_DELAY);
+		if (status != pdPASS)
+		{
+			PRINTF("Failed to acquire consumer_semaphore\r\n");
+			while (1);
+		}
+
+		PRINTF("Input direction: ");
+		SCANF("%c", &c);
+		switch(c)
+		{
+		case 'a':
+			task_input->dir_bits = LEFT_BIT;
+			break;
+		case 's':
+			task_input->dir_bits = DOWN_BIT;
+			break;
+		case 'd':
+			task_input->dir_bits = RIGHT_BIT;
+			break;
+		case 'w':
+			task_input->dir_bits = UP_BIT;
+			break;
+		}
+
+		xSemaphoreGive(producer_semaphore);
+	}
+}
+
+void dir_consumer_sem(void* pvParameters){
+	Task_Input* task_input = (Task_Input *)pvParameters;
+	SemaphoreHandle_t producer_semaphore = task_input->sems[0];
+	SemaphoreHandle_t consumer_semaphore = task_input->sems[1];
+	BaseType_t status;
+	short bits;
+
+	xSemaphoreGive(consumer_semaphore);
+
+	while(1)
+	{
+		status = xSemaphoreTake(producer_semaphore, portMAX_DELAY);
+		if (status != pdPASS)
+		{
+			PRINTF("Failed to acquire producer1_semaphore\r\n");
+			while (1);
+		}
+
+		bits = task_input->dir_bits;
+
+		if((bits & LEFT_BIT) == LEFT_BIT)
+		{
+			PRINTF("Left\r\n");
+		}
+		if((bits & RIGHT_BIT) == RIGHT_BIT)
+		{
+			PRINTF("Right\r\n");
+		}
+		if((bits & UP_BIT) == UP_BIT)
+		{
+			PRINTF("Up\r\n");
+		}
+		if((bits & DOWN_BIT) == DOWN_BIT)
+		{
+			PRINTF("Down\r\n");
+		}
+
+		xSemaphoreGive(consumer_semaphore);
+	}
+}
+
+int main(){
+	BaseType_t status;
+	/* Init board hardware. */
+	BOARD_InitBootPins();
+	BOARD_InitBootClocks();
+	BOARD_InitDebugConsole();
+
+	// Setup task input
+	Task_Input* taskInput = malloc(sizeof(Task_Input));
+
+	taskInput->sems = malloc(2*sizeof(SemaphoreHandle_t));
+	taskInput->sems[0] = xSemaphoreCreateBinary(); //Producer_sem
+	taskInput->sems[1] = xSemaphoreCreateBinary(); //consumer_sem
+
+	status = xTaskCreate(dir_producer_sem, "producer", 200, (void*)taskInput, 2, NULL);
+	if (status != pdPASS)
+	{
+		PRINTF("Task creation failed!.\r\n");
+		while (1);
+	}
+	status = xTaskCreate(dir_consumer_sem, "consumer", 200, (void*)taskInput, 2, NULL);
+	if (status != pdPASS)
+	{
+		PRINTF("Task creation failed!.\r\n");
+		while (1);
+	}
+	vTaskStartScheduler();
+	while (1)
+	{}
+
+	return 0;
+}

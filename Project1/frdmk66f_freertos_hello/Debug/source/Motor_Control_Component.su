@@ -1,0 +1,11 @@
+C:\Users\dengr6\Desktop\project\frdmk66f_freertos_hello\drivers/fsl_clock.h:725:20:CLOCK_EnableClock	24	static
+C:\Users\dengr6\Desktop\project\frdmk66f_freertos_hello\drivers/fsl_port.h:374:20:PORT_SetPinMux	24	static
+C:\Users\dengr6\Desktop\project\frdmk66f_freertos_hello\drivers/fsl_ftm.h:731:20:FTM_StartTimer	24	static
+C:\Users\dengr6\Desktop\project\frdmk66f_freertos_hello\drivers/fsl_ftm.h:1027:20:FTM_SetSoftwareTrigger	16	static
+../source/Motor_Control_Component.c:6:6:setupMotorComponent	24	static
+../source/Motor_Control_Component.c:47:6:setupMotorPins	8	static
+../source/Motor_Control_Component.c:62:6:setupMotors	56	static
+../source/Motor_Control_Component.c:84:6:setupServo	56	static
+../source/Motor_Control_Component.c:108:6:updatePWM_dutyCycle	32	static
+../source/Motor_Control_Component.c:142:6:motorTask	56	static
+../source/Motor_Control_Component.c:221:6:positionTask	40	static

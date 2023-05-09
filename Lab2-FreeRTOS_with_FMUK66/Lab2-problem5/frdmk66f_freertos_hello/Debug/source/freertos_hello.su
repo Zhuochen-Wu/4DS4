@@ -1,0 +1,9 @@
+C:\Users\wuz147\Desktop\Lab2-problem5\frdmk66f_freertos_hello\CMSIS/core_cm4.h:1679:22:__NVIC_EnableIRQ	16	static
+C:\Users\wuz147\Desktop\Lab2-problem5\frdmk66f_freertos_hello\CMSIS/core_cm4.h:1809:22:__NVIC_SetPriority	16	static
+C:\Users\wuz147\Desktop\Lab2-problem5\frdmk66f_freertos_hello\drivers/fsl_common_arm.h:499:24:EnableIRQ	24	static
+C:\Users\wuz147\Desktop\Lab2-problem5\frdmk66f_freertos_hello\drivers/fsl_uart.h:667:23:UART_ReadByte	16	static
+../source/freertos_hello.c:42:6:setupUART	24	static
+../source/freertos_hello.c:60:6:UART4_RX_TX_IRQHandler	16	static
+../source/freertos_hello.c:86:6:consumer_event	32	static
+../source/freertos_hello.c:113:6:delay	16	static
+../source/freertos_hello.c:122:5:main	24	static

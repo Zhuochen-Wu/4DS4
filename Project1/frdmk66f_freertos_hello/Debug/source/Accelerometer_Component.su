@@ -1,0 +1,11 @@
+C:\Users\dengr6\Desktop\project\frdmk66f_freertos_hello\drivers/fsl_clock.h:725:20:CLOCK_EnableClock	24	static
+C:\Users\dengr6\Desktop\project\frdmk66f_freertos_hello\drivers/fsl_port.h:374:20:PORT_SetPinMux	24	static
+C:\Users\dengr6\Desktop\project\frdmk66f_freertos_hello\drivers/fsl_gpio.h:162:20:GPIO_PinWrite	24	static
+../source/Accelerometer_Component.c:6:6:setupAccelerometerComponent	24	static
+../source/Accelerometer_Component.c:25:6:setupAccelerometerPins	8	static
+../source/Accelerometer_Component.c:42:6:voltageRegulator_enable	16	static
+../source/Accelerometer_Component.c:52:6:accelerometer_enable	16	static
+../source/Accelerometer_Component.c:62:6:spi_init	48	static
+../source/Accelerometer_Component.c:86:10:SPI_Send	40	static
+../source/Accelerometer_Component.c:109:10:SPI_receive	48	static
+../source/Accelerometer_Component.c:133:6:accelerometerTask	112	static

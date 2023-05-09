@@ -1,0 +1,6 @@
+C:\Users\wuz147\Desktop\Lab1-problem1\frdmk66f_hello_world\drivers/fsl_ftm.h:731:20:FTM_StartTimer	24	static
+C:\Users\wuz147\Desktop\Lab1-problem1\frdmk66f_hello_world\drivers/fsl_ftm.h:1027:20:FTM_SetSoftwareTrigger	16	static
+../source/hello_world.c:32:6:updatePWM_dutyCycle	32	static
+../source/hello_world.c:54:6:setupPWM	56	static
+../source/hello_world.c:73:6:setupPWM_SERVO	56	static
+../source/hello_world.c:92:5:main	32	static

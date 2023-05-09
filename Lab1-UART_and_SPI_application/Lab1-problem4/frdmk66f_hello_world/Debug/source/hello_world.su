@@ -1,0 +1,7 @@
+C:\Users\wuz147\Desktop\Lab1-problem4\frdmk66f_hello_world\drivers/fsl_gpio.h:162:20:GPIO_PinWrite	24	static
+../source/hello_world.c:23:6:setupSPI	48	static
+../source/hello_world.c:46:6:voltageRegulatorEnable	16	static
+../source/hello_world.c:54:6:accelerometerEnable	16	static
+../source/hello_world.c:63:10:SPI_read	48	static
+../source/hello_world.c:87:10:SPI_write	40	static
+../source/hello_world.c:115:5:main	24	static
